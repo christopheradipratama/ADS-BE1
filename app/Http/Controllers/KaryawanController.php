@@ -53,8 +53,8 @@ class KaryawanController extends Controller
         $request->validate([
             'nama' => 'required|string',
             'alamat' => 'required|string',
-            'tanggal_lahir' => 'required|date|before:' . Carbon::now()->toDateString(), //Validasi Tanggal Harus Sebelum Hari Peginputan
-            'tanggal_bergabung' => 'required|date|before:' . Carbon::now()->toDateString(), //Validasi Tanggal Harus Sebelum Hari Peginputan
+            'tanggal_lahir' => 'required|date|before_or_equal:' . Carbon::now()->toDateString(), //Validasi Tanggal Harus Sebelum Hari Peginputan
+            'tanggal_bergabung' => 'required|date|before_or_equal:' . Carbon::now()->toDateString(), //Validasi Tanggal Harus Sebelum Hari Peginputan
         ]);
 
         $nomorInduk = $this->generateNomorInduk();
@@ -99,8 +99,8 @@ class KaryawanController extends Controller
         $request->validate([
             'nama' => 'required|string',
             'alamat' => 'required|string',
-            'tanggal_lahir' => 'required|before:' . Carbon::now()->toDateString(),
-            'tanggal_bergabung' => 'required|before:' . Carbon::now()->toDateString(),
+            'tanggal_lahir' => 'required|before_or_equal:' . Carbon::now()->toDateString(),
+            'tanggal_bergabung' => 'required|before_or_equal:' . Carbon::now()->toDateString(),
         ]);
 
         $karyawan = Karyawan::where('nomor_induk', $nomor_induk)->first();

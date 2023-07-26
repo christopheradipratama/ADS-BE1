@@ -20,7 +20,7 @@ class KaryawanResource extends JsonResource
             'nomor_induk' => $this->nomor_induk,
             'nama' => $this->nama,
             'alamat' => $this->alamat,
-            'tanggal_lahir' => $this->formattedDate($this->tanggal_lahir), //Melakukan 
+            'tanggal_lahir' => $this->formattedDate($this->tanggal_lahir),
             'tanggal_bergabung' => $this->formattedDate($this->tanggal_bergabung),
             'created_at' => $this->serializeDate(Carbon::parse($this->created_at)),
             'updated_at' => $this->serializeDate(Carbon::parse($this->updated_at)),
